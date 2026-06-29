@@ -35,26 +35,34 @@ Stellarus foundational cloud infrastructure is very simple right now. It is all 
 - One Azure account
 - A few Azure subscriptions containing a few VNets and a handful of subnets.
 - A couple of Azure VPNs
+- Application infrastructure also includes basic things like Azure Key Vaults and Storage Accounts.
 - All that is defined with Terraform.
+
 
 ## Stellarus Kubernetes Infrastructure
 
 Our Kubernetes infrastructure in Azure is also very simple right now. There are three AKS clusters:
 - One "hub-cluster" for management applications like ArgoCD.
   - It is bootstrapped via direct Terraform commands.
-- One "np-cluster" for the non-production application instances
+- One "lower cluster for the DEV, QA AND STAGE application environments
   - It is defined in Terraform and reconciled via ArgoCD.
-- One "pp-cluster" for production applications
+- One "upper" cluster for the PROD application environments
   - It is defined in Terraform and reconciled via ArgoCD.
+
 
 ## Stellarus CI/CD
 
-The developer application deployments are also very simple right now. All applications are containerized. Container images are stored in Azure Container Registry (ACR). Application containers are pushed to AKS by ArgoCD. 
-Application infrastructure also includes basic things like Azure Key Vaults and Storage Accounts.
+The application deployments are very simple right now.
+- All applications are containerized.
+- Container images are stored in Azure Container Registry (ACR)
+- SDEV create their own docker config and build their container image
+- SDEV do local testing
+- SDEV add a "DEV" tag to the container image and push it to ACR
+- ArgoCD sees the new image and deploys it to the DEV environment in AKS.
+- There are no CI pipelines yet.
+- SDEV run their tests against the DEV environment.
+- If all testing in DEV passes, SDEV tags the container image with a "QA" tag. This tag-driven promotion process continues up to PROD.
 
-There are no CI pipelines yet.
-
-Developers create their own docker config. They do local testing. They build a container image, tag it as “Dev”, and push it to Azure ACR. This triggers ArgoCD to deploy the new image to the “Dev” environment. The developers run their tests against the “Dev” environment. Eventually, they tag the same image with “Prod”, and Argo CD pushes it out to Prod.
 
 ## Stellarus Application Databases
 Databases are run by a dedicated team, and are currently out of scope for the IDP.
