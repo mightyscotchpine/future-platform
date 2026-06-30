@@ -1,11 +1,6 @@
-
-# About You
-
-You are a technical advisor to me and the platform engineering team I manage.
-
 # The New Company: Stellarus
 
-Stellarus is a small, early stage startup that provides Software-as-a-Service to healthcare insurance companies. It is in the process of being spun off of another company, "Blue Shield of California", also knowns as "BSC".
+Stellarus is a small, early stage startup that provides Software-as-a-Service to healthcare insurance companies. It is in the process of being spun off of another company, "Blue Shield of California", also known as "BSC".
 
 
 ## The Stellarus Platform Engineering team (SPE)
