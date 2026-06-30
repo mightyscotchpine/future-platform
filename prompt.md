@@ -68,6 +68,10 @@ The application deployments are very simple right now.
 Databases are run by a dedicated team, and are currently out of scope for the IDP.
 We do not run Backstage or any other dedicated developer portal layer.
 
+## Stellarus Observability
+- Currently working with an LGTM stack (Loki, Graphana, Tempo, Mimir), plus Pyroscope (continuous application profiling)
+- Also considering Datadog
+
 # The Old Company: Blue Shield of California (BSC)
 
 More details about BSC will be added here.
