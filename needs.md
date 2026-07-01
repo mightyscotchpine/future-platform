@@ -8,4 +8,9 @@ Anything more specific below overides this for that particular aspect or functio
 
 # Specific Developer Needs
 
+- Must ensure that a specific application version must be deployed with specific versions of its dependencies.
+- Developers must be able to request network connectivity for their application deployments via the platform.
+  - Inter-application connectivity only needs to be approved by the owners of the the source and destination applications. Those approvals are done via pull requests to make them completely auditable.
+  - The platform will not permit connectivity that violates security or compliance policy. Those policies are defined in code by the central security and compliance engineering teams.
+
 # Specific Platform Engineering needs
